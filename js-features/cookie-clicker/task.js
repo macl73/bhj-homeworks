@@ -15,7 +15,7 @@ timeCounter.textContent = "0";
 cookiePicture.before(timeCounterText);
 timeCounterText.after(timeCounter);
 
-let x = new Date;
+let timerStart = new Date;
 
 function cookieResize() {
     if (cookiePicture.width > 220) {
@@ -23,10 +23,10 @@ function cookieResize() {
     } else if (cookiePicture.width < 220) {
         cookiePicture.width += 50;
     };
-    let y = new Date;
+    let timerEnd = new Date;
     clickerCount.textContent++;
-    timeCounter.textContent = ((y - x) / clickerCount.textContent).toFixed(2);
-    x = y;
+    timeCounter.textContent = ((timerEnd - timerStart) / clickerCount.textContent).toFixed(2);
+    timerStart = timerEnd;
 };
 
 cookiePicture.addEventListener("click", cookieResize);
