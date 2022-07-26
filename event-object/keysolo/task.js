@@ -17,6 +17,13 @@ class Game {
   }
 
   registerEvents() {
+    let symbolPrinted = document.addEventListener("keydown", gameResult);
+    
+    function gameResult() {
+      if (symbolPrinted == ) {
+        return this.success;
+      }
+    }
     /*
       TODO:
       Написать обработчик события, который откликается
