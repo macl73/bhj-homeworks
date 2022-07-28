@@ -5,7 +5,13 @@ for (let j = 0; j < dropdownList.length; j++) {
     const dropdownValue = dropdownList[j].querySelector(".dropdown__value");
     const dropdown = dropdownValue.closest("div.dropdown").querySelector(".dropdown__list");
 
-    dropdownValue.addEventListener("click", () => dropdown.className = "dropdown__list dropdown__list_active");
+    dropdownValue.addEventListener("click", () => {
+        if (dropdown.className == "dropdown__list dropdown__list_active") {
+            dropdown.className = "dropdown__list";
+        } else {
+            dropdown.className = "dropdown__list dropdown__list_active";
+        };
+    });
 
     let itemList = Array.from(dropdownList[j].getElementsByClassName("dropdown__item"));
 
