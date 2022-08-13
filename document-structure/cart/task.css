@@ -9,6 +9,7 @@ body {
 
 .cart__product {
   position: relative;
+  margin-left: 10px;
 }
 .cart__product-count {
   position: absolute;
@@ -26,7 +27,17 @@ body {
   height: 100px;
   object-fit: contain;
 }
+
+.cart__product-delete {
+  background: green;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .product {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -39,6 +50,16 @@ body {
 .product__image {
   width: 100px;
   object-fit: contain;
+}
+
+.product__image-jump {
+  display: none;
+  position: absolute;
+  width: 100px;
+}
+
+.product__image-jump-active {
+  display: block;
 }
 
 .product__quantity-title {
