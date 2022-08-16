@@ -37,18 +37,6 @@ for (let elem of productAdd) {
 
                 element.querySelector(".cart__product-count").textContent = value + plusValue;
                 localStorage.setItem("cartHTML", cart.innerHTML);
-
-                /*let er = elem.closest(".product").querySelector(".product__image-jump");
-                console.log(er)
-
-                er.classList.add("product__image-jump-active");
-                let y = 60;
-                let x = 0;
-                const ty = setInterval(() => {
-                    x += 10
-                    y -= 10
-                    er.setAttribute("style", `top: ${y}px; left: ${x}px`)
-                }, 1000)*/
             return;
             };
         };

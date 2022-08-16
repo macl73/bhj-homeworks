@@ -15,6 +15,10 @@ for (let i = 0; i < taskRemoveList.length; i++) {
 
 taskAdd.onclick = (event) => event.preventDefault();
 taskAdd.addEventListener("click", () => {
+    if (taskInput.value.trim() === "") {
+        return;
+    }
+
     tasksList.insertAdjacentHTML("beforeend", 
     `<div class="task">
         <div class="task__title">
@@ -36,4 +40,3 @@ taskAdd.addEventListener("click", () => {
 
     localStorage.setItem("onLoadHTML", tasksList.innerHTML);
 });
-
