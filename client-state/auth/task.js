@@ -10,6 +10,7 @@ if (localStorage.getItem("user_id")) {
 
 function welcomeUser(user) {
     signin.classList.remove("signin_active");
+    form.reset();
     welcome.classList.add("welcome_active");
     userId.textContent = user;
 };
@@ -20,20 +21,15 @@ form.addEventListener("submit", (e) => {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "https://netology-slow-rest.herokuapp.com/auth.php");
     xhr.responseType = 'json';
-    xhr.onreadystatechange = () => {
+    xhr.onload = () => {
 
-        if (xhr.readyState === 4) {
-
-            if (xhr.response.success === false) {
-                alert("Неверный логин/пароль");
-            } else {
-                welcomeUser(xhr.response.user_id);
-                
-                localStorage.setItem("user_id", `${xhr.response.user_id}`);
-            };
+        if (!xhr.response.success) {
+            alert("Неверный логин/пароль");
+        } else {
+            welcomeUser(xhr.response.user_id); 
+            localStorage.setItem("user_id", `${xhr.response.user_id}`);
         };
     };
-
     xhr.send(formData);
 
     e.preventDefault();
@@ -51,7 +47,7 @@ welcomeExit.addEventListener("click", () => {
     welcome.classList.remove("welcome_active");
     signin.classList.add("signin_active");
     localStorage.removeItem("user_id");
+    userId.textContent = "";
 
-    const control = form.querySelectorAll(".control");
-    control.forEach(elem => elem.value = null);
+    form.reset();
 });

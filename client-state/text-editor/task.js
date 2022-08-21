@@ -1,8 +1,8 @@
 const editor = document.getElementById("editor");
 
-editor.value = localStorage.text;
+editor.value = localStorage.getItem("text");
 
-editor.onchange = () => {
+editor.oninput = () => {
     localStorage.setItem("text", editor.value);
 };
 
@@ -13,5 +13,5 @@ card.appendChild(clearButton);
 
 clearButton.onclick = () => {
     editor.value = "";
-    localStorage.text = "";
+    localStorage.removeItem("text");
 };
